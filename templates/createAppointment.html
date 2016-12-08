@@ -7,12 +7,22 @@
     {% load staticfiles %}
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+<<<<<<< HEAD
         <link rel="stylesheet" type="text/css" href="{% static 'mysite/jquery.datetimepicker.css' %}" />
         <script type="text/javascript" src="{% static 'mysite/jquery.js' %}"></script>
         <script type="text/javascript" src="{% static 'mysite/jquery.datetimepicker.js' %}"></script>
 
         {% fullcalendar_jquery %}
         {% fullcalendar_jquery_ui %}
+=======
+        {% fullcalendar_jquery %}
+        {% fullcalendar_jquery_ui %}
+        <!--<script type="text/javascript">
+          $( function() {
+            $( "#id_when" ).datepicker();
+          } );
+          </script>-->
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     </head>
 
     <body>

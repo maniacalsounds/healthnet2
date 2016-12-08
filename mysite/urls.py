@@ -15,13 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+<<<<<<< HEAD
 
 from HealthNet.views import index, profileView, fileView, E_contact_view , E_contact_create_View, prescriptionView, createPrescription, deletePrescription, admission, transfer, UploadFile, register, deleteMessage, login, logout, update, dashboard, calendar, createAppointment, deleteAppointment, Messenger, Compose
 
+=======
+from HealthNet.views import index, register, login, logout, update, dashboard, calendar, createAppointment, deleteAppointment
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 
 urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^admin/', admin.site.urls),
+<<<<<<< HEAD
     #url(r'^calendar/', calendar, name='calendar'),
     url(r'^register/', register, name='register'),
     url(r'^login/', login, name='login'),
@@ -38,6 +43,10 @@ urlpatterns = [
     url(r'^compose/', Compose, name='compose'),
     url(r'^compose/(?P<username>[A-Za-z0-9._\-]+)/', Compose, name='compose'),
     url(r'^UploadFile/', UploadFile, name='UploadFile'),
+=======
+    url(r'^register/', register, name='register'),
+    url(r'^login/', login, name='login'),
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     url(r'^update/', update, name='update'),
     url(r'^dashboard/', dashboard, name='dashboard'),
     url(r'calendar/', calendar, name='calendar'),
@@ -45,8 +54,11 @@ urlpatterns = [
     url(r'^logout/', logout, name='logout'),
     url(r'^createAppointment/', createAppointment, name='create appointment'),
     url(r'^deleteAppointment/', deleteAppointment, name='delete appointment'),
+<<<<<<< HEAD
     url(r'^viewfile/(?P<filename>[A-Za-z0-9.]+)/', fileView, name='view file'),
     url(r'^media/healthnetfiles/(?P<filename>[A-Za-z0-9._\-]+)/', fileView, name='view file'),
     url(r'^profile/(?P<username>[A-Za-z0-9]+)/', profileView, name='view profile'),
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     #url(r'^accounts/', include('accounts.urls', namespace='accounts')),
 ]

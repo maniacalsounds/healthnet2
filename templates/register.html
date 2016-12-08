@@ -8,6 +8,7 @@
     </head>
 
     <body>
+<<<<<<< HEAD
       <nav class="header">
                 <header>
                     <!-- add logo instead of name--> 
@@ -21,14 +22,37 @@
             </nav>
         
         <nav class="forms">
+=======
+        <nav class="header">
+                <header>
+                    <!-- add logo instead of name--> 
+                    <a class="name" href="/" >HealthNet</a>
+                        <ul class="navBar">
+                              <li><a href="/logout/">Log Out</a></li>
+                            <li><a href="/dashboard">Home</a></li> 
+                            <li><a href="/update">Update</a></li> 
+                                <li><a href="/calendar">Calendar</a></li> 
+                        </ul>
+                </header>
+            </nav>
+        <h1>Register</h1>
+
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
         {% if registered %}
         Rango says: <strong>thank you for registering!</strong>
         <a href="/">Return to the homepage.</a><br />
         {% else %}
       
+<<<<<<< HEAD
        
         <form id="user_form" method="post" action="/register/"
                 enctype="multipart/form-data">
+=======
+
+        <form id="user_form" method="post" action="/register/"
+                enctype="multipart/form-data">
+
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
             {% csrf_token %}
 
             <!-- Display each form. The as_p method wraps each element in a paragraph
@@ -39,11 +63,22 @@
             <!-- Provide a button to click to submit the form. -->
             <input type="submit" name="submit" value="Register" />
         </form>
+<<<<<<< HEAD
         
         {% endif %}
         
         </nav>
                  
 
+=======
+        {% endif %}
+        
+          <nav class="footer">   
+                <footer>
+                    
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     </body>
 </html>

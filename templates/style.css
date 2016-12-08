@@ -1,0 +1,19 @@
+
+body 
+{
+    background: url("images/background.jpg") no-repeat center center fixed; 
+}
+h1
+{
+    font-size: 5em;
+    color: black;
+    text-align: center;
+    border-bottom: .07em solid black;   
+}
+form
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: auto;
+}

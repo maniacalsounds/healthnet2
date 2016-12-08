@@ -4,6 +4,7 @@ from collections import OrderedDict
 
 from django.contrib.auth.decorators import login_required
 #from django.core.serializers import json
+<<<<<<< HEAD
 import json as json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse
@@ -22,11 +23,35 @@ from .forms import PatientRegisterForm, AuthenticationForm, HealthFileForm, Upda
     DeleteAppointmentForm, E_contact_createForm, ComposeForm, PrescriptionForm, TransferForm, AdmissionForm
 from datetime import date
 from .models import Appointment, Prescription, Patient, Doctor, Message, HealthFiles, User, Hospital
+=======
+import simplejson as json
+from django.core.serializers.json import DjangoJSONEncoder
+from django.shortcuts import render_to_response, redirect, render
+from django.template import RequestContext, context
+from django.contrib.auth import login as django_login, authenticate, logout as django_logout
+from django.http import HttpResponse
+from django.templatetags.tz import localtime
+
+from log.models import Entry
+from simplejson.encoder import i
+
+from .forms import PatientRegisterForm, AuthenticationForm, UpdatePatientForm, UpdateDoctorForm, CreateAppointmentForm, \
+    DeleteAppointmentForm
+from datetime import date
+from .models import Appointment, Patient, Doctor
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 import datetime
 from calendar import monthrange
 
 ###
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 def date_handler(obj):
     """
     Handles JSON serialization for datetime values
@@ -96,6 +121,13 @@ def calendar_options(event_url, options):
         return '{%s}' % (event_url_option)
     return s[:pos] + event_url_option + ', ' + s[pos:]
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 ###
 
 def login(request):
@@ -142,6 +174,7 @@ def register(request):
     return render(request, 'register.html',{'form': form})
 
 @login_required
+<<<<<<< HEAD
 def admission(request):
     if request.user.is_superuser:
         return redirect('/dashboard')
@@ -212,13 +245,18 @@ def E_contact_create_View(request):
     return render(request, 'E_contact_create.html',{'form': form})
 
 @login_required
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 def update(request):
     """
     User registration view.
     """
+<<<<<<< HEAD
     if request.user.is_superuser:
         return redirect('/dashboard')
 
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     try:
         instance = Patient.objects.get(user=request.user)
         type = 'patient'
@@ -259,6 +297,7 @@ def this_month(request):
     return calendar(request, today.year, today.month)
 
 @login_required
+<<<<<<< HEAD
 def prescriptionView(request):
     # base message viewer
 
@@ -480,6 +519,8 @@ def UploadFile(request):
     return render(request, 'UploadFile.html',{'form': form},)
 
 @login_required
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 def dashboard(request):
     try:
         patient = Patient.objects.get(user=request.user)
@@ -491,6 +532,7 @@ def dashboard(request):
     except Doctor.DoesNotExist:
         doctor = None
 
+<<<<<<< HEAD
     if request.user.is_superuser:
         type = 'admin'
 
@@ -501,6 +543,9 @@ def dashboard(request):
 
         query_result2 = None
     elif patient != None:
+=======
+    if patient != None:
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
         #They're a patient
         type = 'patient'
         query_result = Appointment.objects.filter(ptient = patient).values().order_by('-when')
@@ -511,6 +556,7 @@ def dashboard(request):
         else:
             #no query_results
             query_result = None
+<<<<<<< HEAD
 
         query_result2 = HealthFiles.objects.filter(patient = patient, canview = True).values()
         if query_result2:
@@ -518,6 +564,8 @@ def dashboard(request):
             pass
         else:
             query_result2 = None
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     elif doctor != None:
         #They're a doctor
         type='doctor'
@@ -529,12 +577,19 @@ def dashboard(request):
         else:
             #no query_results
             query_result = None
+<<<<<<< HEAD
 
         query_result2 = None
     else:
         query_result = None
 
     return render(request, 'dashboard.html', {'query_result': query_result, 'type':type, 'query_result2': query_result2})
+=======
+    else:
+        query_result = None
+
+    return render(request, 'dashboard.html', {'query_result': query_result, 'type':type})
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 
 def index(request):
     #redirect if user is authenticated
@@ -545,10 +600,13 @@ def index(request):
 
 @login_required
 def createAppointment(request):
+<<<<<<< HEAD
 
     if request.user.is_superuser:
         return redirect('/dashboard')
 
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     try:
         patient = Patient.objects.get(user=request.user)
     except Patient.DoesNotExist:
@@ -565,10 +623,13 @@ def createAppointment(request):
 
 @login_required
 def calendar(request):
+<<<<<<< HEAD
 
     if request.user.is_superuser:
         return redirect('/dashboard')
 
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     try:
         patient = Patient.objects.get(user=request.user)
     except Patient.DoesNotExist:
@@ -620,9 +681,12 @@ def calendar(request):
 
 @login_required
 def deleteAppointment(request):
+<<<<<<< HEAD
     if request.user.is_superuser:
         return redirect('/dashboard')
 
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     try:
         patient = Patient.objects.get(user=request.user)
     except Patient.DoesNotExist:
@@ -638,20 +702,28 @@ def deleteAppointment(request):
             # They're a patient
             form = DeleteAppointmentForm(data=request.POST, type='patient', user=patient)
 
+<<<<<<< HEAD
             if request.POST['when'] != "":
                 apptToDelete = Appointment.objects.filter(id = request.POST['when'])
                 apptToDelete.delete()
 
             return redirect('/calendar')
 
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
         elif doctor != None:
             # They're a doctor.
             form = DeleteAppointmentForm(data=request.POST, type='doctor', user=doctor)
 
+<<<<<<< HEAD
             if request.POST['when'] != "":
                 apptToDelete = Appointment.objects.filter(id=request.POST['when'])
                 apptToDelete.delete()
 
+=======
+        if form.is_valid():
+            #form.save()
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
             return redirect('/calendar')
     else:
         if patient != None:
@@ -665,5 +737,55 @@ def deleteAppointment(request):
 
 
 
+<<<<<<< HEAD
     return render(request, 'deleteAppointment.html', {'form': form})
 
+=======
+    return render(request, 'deleteappointment.html', {'form': form})
+
+'''
+def calendar(request, year, month, series_id=None):
+    """
+    Show calendar of events for a given month of a given year.
+    ``series_id``
+    The event series to show. None shows all event series.
+
+    """
+
+    my_year = int(year)
+    my_month = int(month)
+    my_calendar_from_month = datetime.datetime(my_year, my_month, 1)
+    my_calendar_to_month = datetime.datetime(my_year, my_month, monthrange(my_year, my_month)[1])
+
+    my_events = Appointment.objects.all().filter(when=my_calendar_from_month).filter(when=my_calendar_to_month)
+    #if series_id:
+     #   my_events = my_events.filter(series=series_id)
+
+    # Calculate values for the calendar controls. 1-indexed (Jan = 1)
+    my_previous_year = my_year
+    my_previous_month = my_month - 1
+    if my_previous_month == 0:
+        my_previous_year = my_year - 1
+        my_previous_month = 12
+    my_next_year = my_year
+    my_next_month = my_month + 1
+    if my_next_month == 13:
+        my_next_year = my_year + 1
+        my_next_month = 1
+    my_year_after_this = my_year + 1
+    my_year_before_this = my_year - 1 #This template name needs to change
+    return render_to_response("cal_template.html", { 'events_list': my_events,
+                                                        'month': my_month,
+                                                        'month_name': named_month(my_month),
+                                                        'year': my_year,
+                                                        'previous_month': my_previous_month,
+                                                        'previous_month_name': named_month(my_previous_month),
+                                                        'previous_year': my_previous_year,
+                                                        'next_month': my_next_month,
+                                                        'next_month_name': named_month(my_next_month),
+                                                        'next_year': my_next_year,
+                                                        'year_before_this': my_year_before_this,
+                                                        'year_after_this': my_year_after_this,
+    }, context_instance=RequestContext(request))
+'''
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51

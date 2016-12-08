@@ -14,7 +14,11 @@
         <nav class="header">
                 <header>
                     <!-- add logo instead of name--> 
+<<<<<<< HEAD
                   <a class="name" href="/dashboard" >HealthNet</a>
+=======
+                  <a class="name" href="/" >HealthNet</a>
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
                         <ul class="navBar">
                             <li><a href="/logout/">Log Out</a></li> 
                             <li><a href="/dashboard">Home</a></li> 
@@ -24,6 +28,7 @@
                         </ul>
                 </header>
             </nav>
+<<<<<<< HEAD
 
 <nav class="forms">
     {% if type == 'admin' %}
@@ -121,5 +126,45 @@
                     <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
      </footer>
  </nav>
+=======
+<h1>Welcome to HealthNet</h1>
+
+                <h2>Your Appointments:</h2>
+
+
+    {% if query_result != None %}
+        <table>
+        <tr>
+            <td>
+                With whom
+            </td>
+            <td>
+                Time
+            </td>
+        </tr>
+        {% for item in query_result %}
+            <tr>
+                <td>
+                    {{ item.name }}
+                </td>
+                <td>
+                    {{ item.when|localtime }}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+
+    {% if query_result == None %}
+        None
+    {% endif %}
+
+ <nav class="footer">   
+                <footer class="indexfooter">
+                    
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 </body>
 </html>

@@ -6,11 +6,17 @@ from django.db.models.sql import AND
 from django.forms import widgets
 from django.http import request
 from django.shortcuts import redirect
+<<<<<<< HEAD
 from django.core.validators import EmailValidator, MaxValueValidator, MinValueValidator, RegexValidator
 
 
 from log.models import Entry
 from .models import Doctor, Hospital, Prescription, Patient, Appointment, Message, HealthFiles
+=======
+
+from log.models import Entry
+from .models import Doctor, Hospital, Patient, Appointment
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 
 #class RegisterTypeForm(forms.ModelForm):
     #type = forms.choi
@@ -19,10 +25,13 @@ genders = (
     ("male", "male"),
     ("female", "female"),
 )
+<<<<<<< HEAD
 adordis = (
     ("Admit", "Admit"),
     ("Discharge", "Discharge"),
 )
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 
 class DeleteAppointmentForm(forms.ModelForm):
     #patient = Patient.objects.get(user=self.user)
@@ -47,10 +56,13 @@ class DeleteAppointmentForm(forms.ModelForm):
 
 class CreateAppointmentForm(forms.ModelForm):
     when = forms.DateTimeField()
+<<<<<<< HEAD
     #when = forms.DateTimeField(
     #      required=True,
     #      widget=DateTimePicker(options={"format": "YYYY-MM-DD HH:mm"})
     #)
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 
     class Meta:
         model = Appointment
@@ -77,6 +89,7 @@ class CreateAppointmentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
         super(CreateAppointmentForm, self).__init__(*args, **kwargs)
+<<<<<<< HEAD
         self.fields['when'].label = "When (YYYY-MM-DD HH:mm)"
 
 class AdmissionForm(forms.ModelForm):
@@ -224,6 +237,10 @@ class E_contact_createForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
         super(E_contact_createForm, self).__init__(*args, **kwargs)
+=======
+
+
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 
 class UpdatePatientForm(forms.ModelForm):
     #currentuser = Patient.objects.get(username=request.user.self)
@@ -258,21 +275,34 @@ class UpdateDoctorForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'address', 'phone_number', 'email', 'hospital')
 
 class PatientRegisterForm(forms.ModelForm):
+<<<<<<< HEAD
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
                                  message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     username = forms.CharField(max_length=100, required=True)
     email = forms.EmailField(max_length=100, label="Email", required=True, validators=[EmailValidator])
+=======
+    username = forms.CharField(max_length=100, required=True)
+    email = forms.EmailField(max_length=100, label="Email", required=True)
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     password = forms.CharField(widget=forms.PasswordInput(), required=True)
     sex = forms.ChoiceField(choices=genders)
     first_name = forms.CharField(max_length=100, required=True)
     last_name = forms.CharField(max_length=100, required=True)
     insurance_number = forms.CharField(max_length=100,required=True)
     doctor = forms.ModelChoiceField(queryset=Doctor.objects.all(), required=True)
+<<<<<<< HEAD
     weight = forms.IntegerField(required=True, validators=[RegexValidator(regex=r'^\d{1,4}$',message="Must be a number between 1-4 digits.")])
     height_in_feet = forms.IntegerField(required=True, validators=[MaxValueValidator(9), MinValueValidator(1)])
     height_in_inches = forms.IntegerField(required=True, validators=[MaxValueValidator(108), MinValueValidator(12)])
     address = forms.CharField(max_length=200, validators=[RegexValidator(regex='^\d+\s[A-z]+\s[A-z]+$', message="Please enter a valid address.")])
     phone_number = forms.CharField(max_length=20, validators=[phone_regex])
+=======
+    weight = forms.IntegerField(required=True)
+    height_in_feet = forms.IntegerField(required=True)
+    height_in_inches = forms.IntegerField(required=True)
+    address = forms.CharField(max_length=200)
+    phone_number = forms.CharField(max_length=20)
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
     preferred_hospital = forms.ModelChoiceField(queryset=Hospital.objects.all(), required=True)
     #current_hospital = forms.ModelChoiceField(queryset=Hospital.objects.all(), required = True)
 

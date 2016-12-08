@@ -1,5 +1,9 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from .models import Doctor, Hospital, Patient, Appointment, Nurse, HealthFiles
+=======
+from .models import Doctor, Hospital, Patient, Appointment, Nurse
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 
 # Register your models here.
 
@@ -17,9 +21,12 @@ class patientAdmin(admin.ModelAdmin):
         ('Home address', {'fields': ['address']}),
         ('Phone number', {'fields': ['phone_number']}),
         ('Contact e-mail', {'fields': ['email']}),
+<<<<<<< HEAD
         ('Emergency Contact Username', {'fields': ['E_contact']}),
         ('Emergency Contact Name', {'fields':['E_contact_name']}),
         ('Emergency Contact Address', {'fields': ['E_contact_address']}),
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
         ('Preferred hospital', {'fields': ['preferred_hospital']}),
         ('Admitted to', {'fields': ['cur_hospital']}),
     ]
@@ -86,6 +93,7 @@ class nurseAdmin(admin.ModelAdmin):
 
 admin.site.register(Nurse, nurseAdmin)
 
+<<<<<<< HEAD
 class healthFilesAdmin(admin.ModelAdmin):
     fieldsets = [
         ('docfile', {'fields': ['docfile']}),
@@ -97,6 +105,8 @@ class healthFilesAdmin(admin.ModelAdmin):
 
 admin.site.register(HealthFiles, healthFilesAdmin)
 
+=======
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 def isDoctor(user):
     return user.groups.filter(name__in=['Doctors']).exists()
 

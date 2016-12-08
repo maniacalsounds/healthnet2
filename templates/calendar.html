@@ -24,7 +24,11 @@
         <nav class="header">
                 <header>
                     <!-- add logo instead of name--> 
+<<<<<<< HEAD
                   <a class="name" href="/dashboard" >HealthNet</a>
+=======
+                  <a class="name" href="/" >HealthNet</a>
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
                         <ul class="navBar">
                               <li><a href="/logout/">Log Out</a></li>
                             <li><a href="/dashboard">Home</a></li> 
@@ -33,9 +37,13 @@
                         </ul>
                 </header>
             </nav>
+<<<<<<< HEAD
        
          <nav class="formsCalender">
         
+=======
+
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
         {% if type == 'doctor' %}
             <h1>Appointments with Your Patients</h1>
         {% endif %}
@@ -43,6 +51,10 @@
         {% if type == 'patient' %}
             <h1>Schedule for Doctor {{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</h1>
         {% endif %}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
         {% calendar %}
 
         <div id="calendar"></div>
@@ -70,6 +82,7 @@
                 });
             });
         </script>
+<<<<<<< HEAD
           </nav>
         <nav class="button">
         {% if type == 'patient' %}
@@ -86,5 +99,19 @@
                 </footer>
             </nav>
        
+=======
+
+        {% if type == 'patient' %}
+            <a href="/createAppointment/">Create an appointment with Doctor {{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</a><br />
+            <a href="/deleteAppointment/">Delete an appointment</a>
+        {% endif %}
+
+
+        <nav class="footer">
+                <footer>
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+>>>>>>> 60721cd1b63e07f231725955e80eaccd7c2afc51
 </body>
 </html>
