@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File viewer</title>
+    {% load staticfiles %}
+        {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+</head>
+<body>
+    <nav class="header">
+                <header>
+                    <!-- add logo instead of name-->
+                    <a class="name" href="/" >HealthNet</a>
+                        <ul class="navBar">
+                             <li><a href="/logout/">Log Out</a></li>
+                            <li><a href="/dashboard">Home</a></li>
+                            <li><a href="/update">Update</a></li>
+                            <li><a href="/calendar">Calendar</a></li>
+                        </ul>
+                </header>
+            </nav>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+</form>
+
+
+
+    <form action="{% url 'fileView' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Files</h2>
+            {% for file in files%}
+                <h5>File From:</h5>
+                {{file.doctor}}
+                <h6>File content</h6>
+                {{file.docfile}}
+
+            {% endfor %}
+
+        </form>
+
+</body>
+</html>

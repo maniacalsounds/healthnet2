@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healthnet | Index</title>
+ {% load staticfiles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+    </head>
+
+    <body>
+        <nav class="header">
+                <header>
+                    <!-- add logo instead of name--> 
+                   <a class="name" href="/dashboard" >HealthNet</a>
+                        <ul class="navBar">
+                            <li><a href="/login/">Log In</a></li> 
+                        </ul>
+                </header>
+            </nav>
+<nav class= "log">
+<h1 class="healthnet">HealthNet Users</h1>
+    <a href="/login/" class="login">Log In</a> <br>
+<h1 class="healthnet">First Time User?</h1>
+<a href="/register/" class="login">Register</a>
+    </nav>
+         <nav class="footer">   
+                <footer class="indexfooter">
+                    
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View your Prescriptions</title>
+     {% load staticfiles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+</head>
+<body>
+ <nav class="header">
+                <header>
+                    <!-- add logo instead of name--> 
+                  <a class="name" href="/" >HealthNet</a>
+                        <ul class="navBar">
+                            <li><a href="/logout/">Log Out</a></li> 
+                            <li><a href="/dashboard">Home</a></li> 
+                            <li><a href="/update">Update</a></li> 
+                           <li><a href="/calendar">Calendar</a></li> 
+                             
+                        </ul>
+                </header>
+            </nav>
+    <nav class="forms">
+<form id="user_form" method="post" action="/prescriptionView/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <h1>Your Prescriptions</h1>
+            {% for pres in received %}
+                <h4>From:</h4>
+                <h4>{{pres.send}}</h4>
+                <h4>Date:</h4>
+                <h4>{{pres.createdOn}}</h4>
+                <h4>{{pres.prescription}}</h4>
+                <a href="/deletePrescription/{{pres.id}}/" class="create">Delete Prescription</a>
+            {% endfor %}
+            {% if sent != None %}
+                {% for pres in sent %}
+                <h3>Sent Prescriptions</h3>
+                <h4>To:</h4>
+                <h4>{{pres.receive}}</h4>
+                <h4>Date:</h4>
+                <h4>{{pres.createdOn}}</h4>
+                <h3> Message</h3>
+                <h4 class="pres">{{pres.prescription}}</h4>
+                <a href="/deletePrescription/{{pres.id}}/" class="create">Delete Prescription</a>
+            
+                {% endfor %}
+            {% endif %}
+            {%if type != None%}
+    
+            
+            <h6>.</h6>
+            <a href="/createPrescription/"class="create" >New Prescription</a>
+            {%endif%}
+
+        </form>
+        </nav>
+  <nav class="footer">   
+                <footer class="indexfooter">
+                    
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+</body>
+</html>

@@ -1,0 +1,357 @@
+body 
+{
+  
+    
+    background-image: url(images/background.png);   
+     -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.header
+{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    background-color: black;
+}
+
+.navBar{
+    list-style-type: none;
+    margin: 0;
+    padding-right: 2em;;
+    overflow: hidden;
+    background-color: black;
+}
+.navBar li 
+{
+    padding: auto;
+    
+    margin-right: .5em;
+    font-size: 2em;
+    float: right; 
+}
+
+.navBar li a {
+    display: block;
+    color: lightyellow;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    text-decoration: none;
+   
+}
+.navBar li a:hover {
+    border-left: 1px solid lightskyblue;
+    border-right: 1px solid lightskyblue;
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+        transform: scale(1.5);
+    color: lightskyblue;
+    
+}
+.name{
+    text-transform: uppercase;
+    position: absolute;
+    color: lightskyblue;
+    margin-left: 25px;
+    padding: .2em;
+    text-decoration: none;
+    border-left: none;
+    float: left;
+    overflow: 0;
+    font-size: 3em;
+    text-shadow: 1px 1px maroon;   
+}
+
+.name:hover {
+    color: firebrick;
+    border-bottom: 1px solid firebrick;   
+}
+
+.healthnet
+{
+    font-size:3em;
+    color: black;
+    text-shadow: .05em .05em white;   
+    text-align: center;
+    padding: .5em;
+}
+.buttons
+{
+    font-size: 40px;
+    position: absolute;
+    color: lightskyblue;
+    margin-left: 25px;
+    padding: .2em;
+    text-decoration: none;
+    border-left: none;
+    float: left;
+    overflow: 0;
+    font-size: 3em;
+    text-shadow: 1px 1px maroon;   
+}
+form
+{
+    margin: 0 auto;
+    padding: auto;
+    width: 20em;
+  
+}
+label
+{
+    text-align: justify;
+   
+    font-size: 2em;
+}
+input[type=text], [type=password],[type=email], [type=number], select
+{
+    width: 100%;
+    
+    padding: 12px 2px;
+    display: block;
+    border:1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]
+{
+    font-size: 2em;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 3px 3px black;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: dodgerblue;
+}
+
+footer
+{
+    position: absolute;
+    left: 0;
+    right: 0;
+    
+    background: black;
+    color: white;
+    text-align: right;
+}
+.footer1
+{
+    position: absolute;
+    top: 140%;
+    width: 100%;
+}
+
+.indexfooter
+{
+    bottom: 0;
+}
+#footer
+{
+    margin-right: 20px;
+}
+.login
+{
+
+    padding: .7em;
+    padding-right: 4em;
+    padding-left: 4em;
+    text-decoration: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    background-color: #4CAF50;
+    box-shadow: .2em .2em black;
+    border-radius: .5em;
+}
+.login:hover
+{
+    color: white;
+    
+    background-color: dodgerblue;
+}
+.log
+{
+    background-color: rgba(0, 0, 255, 0.1);
+    border-radius: 2em;
+    box-shadow: .6em .6em black;
+    border-width: .3em;
+    border-color: midnightblue;
+    border-style: solid;
+    padding-top: 2em;
+    padding-bottom: 5em;
+    padding-left:  5em;
+    padding-right: 5em;
+    position: absolute;
+    left: 68%;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.forms
+{
+    color:black;
+   
+    background-color: rgba(63, 98, 255,0.8);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50em;
+    border-radius: 2em;
+    box-shadow: .6em .6em black;
+    border-width: .3em;
+    border-color: midnightblue;
+    border-style: solid;
+    padding: 2em;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    border-radius: 2em;
+}
+
+.main
+{
+    padding: 5em;
+    margin: 2em;
+}
+
+
+.formsCalender
+{
+    color:black;
+    top: 8%;
+    background-color: rgba(63, 98, 255,0.8);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80em;
+    border-radius: 2em;
+    box-shadow: .6em .6em black;
+    border-width: .3em;
+    border-color: midnightblue;
+    border-style: solid;
+    padding: 2em;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    border-radius: 2em;
+}
+
+.button
+{
+    position: absolute;
+    top: 120%;
+    margin-left: 5em;
+    margin-right: 5em;
+    left:40%;
+    transform: translate(-50%);
+   
+    padding: 5em;
+}
+.create
+{
+    padding: 1em;
+     margin-top: 5em;
+    padding-right: 4em;
+    padding-left: 4em;
+    left: 5%;
+    text-decoration: none;
+    position: relative;
+   
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    background-color: #4CAF50;
+    box-shadow: .2em .2em black;
+    border-radius: .5em;
+      
+}
+
+.create:hover
+{
+    color: white;
+    
+    background-color: dodgerblue;
+}
+
+.delete
+{
+    padding: 1em;
+    margin-top: 2em;
+    padding-right: 4em;
+    padding-left: 4em;
+    text-decoration: none;
+    position: relative;
+    left: 20%;
+    
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    background-color: #4CAF50;
+    box-shadow: .2em .2em black;
+    border-radius: .5em;
+      
+}
+
+.delete:hover
+{
+    color: white;
+    
+    background-color: dodgerblue;
+}
+
+.formsCalender h1
+{
+    text-align: center;
+}
+
+#calendar
+{
+    text-align: center;
+    font-size: 1em;
+    color: white;
+}
+
+.forms h1
+{
+    text-align: center;
+    color: white;
+    text-shadow: .1em .1em black;
+    
+}
+
+.forms h3 
+{
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+    text-shadow: .1em .1em black;
+    margin: 1em;
+    padding: .5em;
+}
+
+.forms h2
+{
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+    text-shadow: .1em .1em black;
+    margin: 1em;
+    padding: .5em;
+}
+.pres
+{
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+}

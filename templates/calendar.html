@@ -1,0 +1,90 @@
+{% load fullcalendar_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healthnet | Calendar</title>
+    {% load staticfiles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+
+        <script type="text/javascript" src="{% static 'mysite/fullcalendar.js' %}"></script>
+
+        {% fullcalendar_css %}
+    {% fullcalendar_print_css %}
+    {% fullcalendar_jquery %}
+    {% fullcalendar_jquery_ui %}
+    {% fullcalendar_javascript %}
+
+
+    </head>
+
+    <body>
+        <nav class="header">
+                <header>
+                    <!-- add logo instead of name--> 
+                  <a class="name" href="/dashboard" >HealthNet</a>
+                        <ul class="navBar">
+                              <li><a href="/logout/">Log Out</a></li>
+                            <li><a href="/dashboard">Home</a></li> 
+                            <li><a href="/update">Update</a></li> 
+                              <li><a href="/calendar">Calendar</a></li> 
+                        </ul>
+                </header>
+            </nav>
+       
+         <nav class="formsCalender">
+        
+        {% if type == 'doctor' %}
+            <h1>Appointments with Your Patients</h1>
+        {% endif %}
+
+        {% if type == 'patient' %}
+            <h1>Schedule for Doctor {{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</h1>
+        {% endif %}
+        {% calendar %}
+
+        <div id="calendar"></div>
+        <script type="text/javascript">
+            $(document).ready(function() { // Page is ready.
+                // Initialize the calendar.
+                $("#calendar").fullCalendar({
+                    events: {{ appointmentlist|safe }},
+                    timeFormat: "H:mm",
+                    allDaySlot: false,
+                    firstDay: 0,
+                    weekMode: 'liquid',
+                    slotMinutes: 15,
+                    defaultEventMinutes: 30,
+                    minTime: 8,
+                    maxTime: 20,
+                    editable: false,
+
+                eventClick: function(event, jsEvent, view) {
+                    if (view.name == 'month') {
+                        $('#calendar').fullCalendar('gotoDate', event.start)
+                    }
+                },
+
+                });
+            });
+        </script>
+          </nav>
+        <nav class="button">
+        {% if type == 'patient' %}
+         <a href="/createAppointment/" class="create">Create an appointment with Doctor {{ patient.doctor.first_name }} {{ patient.doctor.last_name }}</a>
+        {% endif %}
+        <a href="/deleteAppointment/" class="delete">Delete an appointment</a>
+       
+        </nav>
+      
+ <nav class="footer1">   
+                <footer class="indexfooter">
+                    
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+       
+</body>
+</html>

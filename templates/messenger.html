@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages</title>
+     {% load staticfiles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+</head>
+<body>
+ <nav class="header">
+                <header>
+                    <!-- add logo instead of name--> 
+                  <a class="name" href="/" >HealthNet</a>
+                        <ul class="navBar">
+                            <li><a href="/logout/">Log Out</a></li> 
+                            <li><a href="/dashboard">Home</a></li> 
+                            <li><a href="/update">Update</a></li> 
+                           <li><a href="/calendar">Calendar</a></li> 
+                             
+                        </ul>
+                </header>
+            </nav>
+    
+    <nav class="forms">
+<form id="user_form" method="post" action="/Messenger/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <h1>INBOX</h1>
+            {% for msg in received %}
+                <h4>From:</h4>
+                <h4>{{msg.sender}}</h4>
+                <h4>Time:</h4>
+                <h4>{{msg.created}}</h4>
+                <h4>{{msg.msg}}</h4>
+                <a href="/deleteMessage/{{msg.id}}/" class="delete">delete message</a>
+            {% endfor %}
+
+
+            <h1>OUTBOX</h1>
+            {% for msg in sent %}
+                <h4>To:</h4>
+                <h4>{{msg.receiver}}</h4>
+                <h4>Time:</h4>
+                <h4>{{msg.created}}</h4>
+                <h4>{{msg.msg}}</h4>
+                <a href="/deleteMessage/{{msg.id}}/"  class="delete">delete message</a>
+            {% endfor %}
+
+            <h6>.</h6>
+            <a href="/compose/"  class="delete">New Message</a>
+
+        </form>
+</nav>
+    <nav class="footer1">
+     <footer class="indexfooter">
+
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile - {{ profileUser }}</title>
+</head>
+<body>
+
+    {% if type == 'doctor' %}
+        <!-- doctor is logged in viewing the profile -->
+        <h1>{{ profileUser }}</h1>
+    {% endif %}
+
+    {% if type == 'patient' %}
+        <!-- patient is logged in viewing the profile -->
+        <h1>{{ profileUser }}</h1>
+
+        {% if profiletype == 'patient' %}
+        <h3>First name: {{ profile.first_name }}</h3>
+        <h3>First name: {{ profile.last_name }}</h3>
+        {% endif %}
+
+        {% if profiletype == 'doctor' %}
+        <h3>First name: {{ profile.first_name }}</h3>
+        <h3>First name: {{ profile.last_name }}</h3>
+        {% endif %}
+
+
+    {% endif %}
+
+</body>
+</html>

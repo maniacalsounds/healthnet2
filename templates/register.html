@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HealthNet | Register</title>
+        {% load staticfiles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+    </head>
+
+    <body>
+      <nav class="header">
+                <header>
+                    <!-- add logo instead of name--> 
+                    <a class="name" href="/dashboard" >HealthNet</a>
+                        <ul class="navBar">
+                            
+                            <li><a href="/login/">Log In</a></li> 
+                           
+                        </ul>
+                </header>
+            </nav>
+        
+        <nav class="forms">
+        {% if registered %}
+        Rango says: <strong>thank you for registering!</strong>
+        <a href="/">Return to the homepage.</a><br />
+        {% else %}
+      
+       
+        <form id="user_form" method="post" action="/register/"
+                enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Display each form. The as_p method wraps each element in a paragraph
+                 (<p>) element. This ensures each element appears on a new line,
+                 making everything look neater. -->
+            {{ form.as_p }}
+
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" value="Register" />
+        </form>
+        
+        {% endif %}
+        
+        </nav>
+                 
+
+    </body>
+</html>

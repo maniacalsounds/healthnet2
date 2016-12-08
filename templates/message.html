@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+    {% load staticfiles %}
+        {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+</head>
+<body>
+    <nav class="header">
+                <header>
+                    <!-- add logo instead of name-->
+                    <a class="name" href="/" >HealthNet</a>
+                        <ul class="navBar">
+                             <li><a href="/logout/">Log Out</a></li>
+                            <li><a href="/dashboard">Home</a></li>
+                            <li><a href="/update">Update</a></li>
+                            <li><a href="/calendar">Calendar</a></li>
+                        </ul>
+                </header>
+            </nav>
+   
+<nav class="forms">
+<div class="row page-header">
+	<div style="display: flex;">
+		<div>
+	   		<h6 style="color: #A1A1A1;">TO: {{message.reciever}} &nbsp;&nbsp; FROM: {{message.sender}}</h6>
+	   		<h6 style="color: #A1A1A1;">{{message.created}}</h6>
+	   </div>
+	</div>
+</div>
+<h4>{{message.msg_content}}</h4>
+</nav>
+  <nav class="footer">
+                <footer class="indexfooter">
+
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+</body>
+</html>

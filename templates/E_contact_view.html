@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+        <title>HealthNet | Update Information</title>
+         {% load staticfiles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+    </head>
+
+<body>
+ <nav class="header">
+                <header>
+                    <!-- add logo instead of name-->
+                  <a class="name" href="/" >HealthNet</a>
+                        <ul class="navBar">
+                              <li><a href="/logout/">Log Out</a></li>
+                            <li><a href="/dashboard">Home</a></li>
+                            <li><a href="/update">Update</a></li>
+                             <li><a href="/calendar">Calendar</a></li>
+                        </ul>
+                </header>
+            </nav>
+    {%csrf_token%}
+<nav class="forms">
+    <h3>Emergency Contact</h3>
+
+    <h3>Emergency contact name</h3>
+    {{PatientUser.E_contact_name}}
+    <h3>Emergency contact address</h3>
+    {{PatientUser.E_contact_address}}
+    <h3>Emergency contact Phone number</h3>
+    {{PatientUser.E_contact_phoneNum}}
+    
+        <a href="/E_contact_create/" class="login">Edit Emergency Contact</a>
+
+</nav>
+    
+      <nav class="footer">
+     <footer class="indexfooter">
+
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+</body>
+</html>

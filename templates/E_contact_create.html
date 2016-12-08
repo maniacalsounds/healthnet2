@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HealthNet | Update Information</title>
+         {% load staticfiles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+    </head>
+
+    <body>
+        <nav class="header">
+                <header>
+                    <!-- add logo instead of name-->
+                  <a class="name" href="/" >HealthNet</a>
+                        <ul class="navBar">
+                              <li><a href="/logout/">Log Out</a></li>
+                            <li><a href="/dashboard">Home</a></li>
+                            <li><a href="/update">Update</a></li>
+                             <li><a href="/calendar">Calendar</a></li>
+                        </ul>
+                </header>
+            </nav>
+
+        <h1>Emergency contact Information</h1>
+
+<nav class="forms">
+<form id="user_form" method="post" action="/E_contact_create/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <!-- Display each form. The as_p method wraps each element in a paragraph
+                 (<p>) element. This ensures each element appears on a new line,
+                 making everything look neater. -->
+            {{ form.as_p }}
+
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" value="Update" />
+        </form>
+</nav>
+       <nav class="footer">
+     <footer class="indexfooter">
+
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+                </footer>
+            </nav>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+{% load tz %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HealthNet | Dashboard</title>
+    {% load staticfiles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}" />
+    </head>
+
+    <body>
+        <nav class="header">
+                <header>
+                    <!-- add logo instead of name--> 
+                  <a class="name" href="/dashboard" >HealthNet</a>
+                        <ul class="navBar">
+                            <li><a href="/logout/">Log Out</a></li> 
+                            <li><a href="/dashboard">Home</a></li> 
+                            <li><a href="/update">Update</a></li> 
+                           <li><a href="/calendar">Calendar</a></li> 
+                             
+                        </ul>
+                </header>
+            </nav>
+
+<nav class="forms">
+    {% if type == 'admin' %}
+        <h2> Site Statistics: </h2>
+
+        <h4>Total logins:</h4>
+        {% for item in query_result %}
+            user {{ item.user }}: {{ item.num_logins }}  ({{ item.avg_logins }}%)<br />
+        {% endfor %}
+    {% else %}
+                    <h2>Your Appointments:</h2>
+
+
+
+        {% if query_result != None %}
+            <table>
+            <tr>
+                <td>
+                    <p>With Whom:</p>
+                </td>
+                <td>
+                     {% for item in query_result %}
+                      <p>{{ item.name }}</p>
+
+                </td>
+            </tr>
+
+                <tr>
+                    <td>
+                     <p>Time</p>
+                    </td>
+                    <td>
+                       <p> {{ item.when|localtime }}</p>
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+        {% endif %}
+
+        {% if query_result == None %}
+        <p> None </p>
+        {% endif %}
+
+
+
+
+            <h2>Your Files:</h2>
+
+
+        {% if query_result2 != None %}
+            <table>
+            <tr>
+                <td>
+                    File
+                </td>
+                <td>
+                    Comment
+                </td>
+            </tr>
+            {% for item in query_result2 %}
+                <tr>
+                    <td>
+                        <a href="/media/{{ item.docfile }}">{{ item.docfile }}</a>
+                    </td>
+                    <td>
+                        {{ item.comment }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+        {% endif %}
+
+        {% if query_result2 == None %}
+            None
+        {% endif %}
+        
+    {% endif %}
+  </nav>
+
+ <nav class="footer">   
+     <footer class="indexfooter">
+                    <ul class="navBar">
+                        {% if type != 'admin' %}
+        {% if type == 'doctor' %}
+        <li> <a href="/transfer"> Transfer </a></li>
+        <li> <a href="/admission"> Admission</a></li>
+        <li> <a href="/UploadFile"> Upload Files</a></li>
+       
+        {% endif %}
+        <li> <a href="/E_contact_view"> Emergency Contact</a></li>
+        <li> <a href="/messenger"> Messages </a></li>
+        <li> <a href="/prescriptionView"> Prescriptions</a></li>
+        </ul>
+         {% endif %}
+                    <p id="footer"> @Copyright HealthNet Team DoctorWhy? </p>
+     </footer>
+ </nav>
+</body>
+</html>
